@@ -4,6 +4,15 @@ import { getPosts } from '@/server/posts'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const PlaceHolder = () => (
+  <Image
+    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=3440&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    alt="image"
+    fill
+    objectFit="cover"
+  />
+)
+
 export default async function Blogs() {
   const posts = await getPosts()
   console.log(posts)
@@ -14,12 +23,16 @@ export default async function Blogs() {
           <Card className="col-span-1 h-[324px] w-full flex flex-col">
             <CardHeader className="p-0">
               <div className="relative h-48">
-                <Image
-                  src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=3440&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="image"
-                  fill
-                  objectFit="cover"
-                />
+                {post.preview?.asset ? (
+                  <Image
+                    src={post.preview.asset.url} // TODO: correct property is _ref, use https://www.sanity.io/docs/image-url#sanity-image-url
+                    alt="image"
+                    fill
+                    objectFit="cover"
+                  />
+                ) : (
+                  <PlaceHolder />
+                )}
               </div>
 
               <CardTitle className="line-clamp-3 leading-8 text-xl px-6">
