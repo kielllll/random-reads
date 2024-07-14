@@ -11,11 +11,16 @@ export type Post = {
     _type: 'slug'
   }
   body: Record<string, any>
+  publishedAt: string
+  preview: any
+  category: string
 }
 
 export async function getPosts() {
   try {
-    const posts = await client.fetch<Post[]>('*[_type == "post"]')
+    const posts = await client.fetch<Post[]>(
+      '*[_type == "post"]|order(publishedAt desc)'
+    )
 
     return posts
   } catch (error) {
