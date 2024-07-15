@@ -30,6 +30,7 @@ export default async function Blogs() {
                     alt="image"
                     fill
                     objectFit="cover"
+                    className="bg-slate-100"
                   />
                 ) : (
                   <PlaceHolder />
