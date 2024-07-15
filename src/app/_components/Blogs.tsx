@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { generateImageUrl } from '@/lib/sanity'
 import { getPosts } from '@/server/posts'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -15,7 +16,7 @@ const PlaceHolder = () => (
 
 export default async function Blogs() {
   const posts = await getPosts()
-  console.log(posts)
+  console.log(posts[0].preview.asset)
   return (
     <div className="grid grid-cols-2 w-full items-center gap-4 pb-12">
       {posts.map((post) => (
@@ -25,7 +26,7 @@ export default async function Blogs() {
               <div className="relative h-48">
                 {post.preview?.asset ? (
                   <Image
-                    src={post.preview.asset.url} // TODO: correct property is _ref, use https://www.sanity.io/docs/image-url#sanity-image-url
+                    src={generateImageUrl(post.preview.asset._ref).url()}
                     alt="image"
                     fill
                     objectFit="cover"
