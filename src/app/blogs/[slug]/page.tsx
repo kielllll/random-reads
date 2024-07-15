@@ -19,6 +19,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           block: {
             h2: ({ children }) => <h2 className="text-3xl">{children}</h2>,
             h3: ({ children }) => <h3 className="text-2xl">{children}</h3>,
+            h4: ({ children }) => <h4 className="text-xl">{children}</h4>,
           },
         }}
       />
