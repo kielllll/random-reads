@@ -16,7 +16,7 @@ const PlaceHolder = () => (
 
 export default async function Blogs() {
   const posts = await getPosts()
-  console.log(posts[0].preview.asset)
+
   return (
     <div className="grid grid-cols-2 w-full items-center gap-4 pb-12">
       {posts.map((post) => (
