@@ -11,6 +11,9 @@ dependencies:
   '@radix-ui/react-label':
     specifier: ^2.1.0
     version: 2.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
+  '@radix-ui/react-slot':
+    specifier: ^1.1.0
+    version: 1.1.0(@types/react@18.3.3)(react@18.3.1)
   '@radix-ui/react-switch':
     specifier: ^1.1.0
     version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
@@ -23,6 +26,9 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  embla-carousel-react:
+    specifier: ^8.1.6
+    version: 8.1.6(react@18.3.1)
   lucide-react:
     specifier: ^0.400.0
     version: 0.400.0(react@18.3.1)
@@ -5286,6 +5292,28 @@ packages:
 
   /electron-to-chromium@1.4.818:
     resolution: {integrity: sha512-eGvIk2V0dGImV9gWLq8fDfTTsCAeMDwZqEPMr+jMInxZdnp9Us8UpovYpRCf9NQ7VOFgrN2doNSgvISbsbNpxA==}
+    dev: false
+
+  /embla-carousel-react@8.1.6(react@18.3.1):
+    resolution: {integrity: sha512-DHxwFzF63yVrU95Eo58E9Xr5b6Y9ul6TTsqb/rtwMi+jXudAmIqN1i9iBxQ73i8jKuUVxll/ziNYMmnWvrdQJQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0
+    dependencies:
+      embla-carousel: 8.1.6
+      embla-carousel-reactive-utils: 8.1.6(embla-carousel@8.1.6)
+      react: 18.3.1
+    dev: false
+
+  /embla-carousel-reactive-utils@8.1.6(embla-carousel@8.1.6):
+    resolution: {integrity: sha512-Wg+J2YoqLqkaqsXi7fTJaLmXm6BpgDRJ0EfTdvQ4KE/ip5OsUuKGpJsEQDTt4waGXSDyZhIBlfoQtgGJeyYQ1Q==}
+    peerDependencies:
+      embla-carousel: 8.1.6
+    dependencies:
+      embla-carousel: 8.1.6
+    dev: false
+
+  /embla-carousel@8.1.6:
+    resolution: {integrity: sha512-9n7FVsbPAs1KD+JmO84DnEDOZMXPBQbLujjMQqvsBRN2CDWwgZ9hRSNapztdPnyJfzOIxowGmj0BUQ8ACYAPkA==}
     dev: false
 
   /emoji-regex@8.0.0:
