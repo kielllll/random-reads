@@ -1,13 +1,15 @@
 import ImagePlaceholder from '@/components/image-placeholder'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { generateImageUrl } from '@/lib/sanity'
 import { getPosts } from '@/server/posts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { LoadMoreButton } from './LoadMoreButton'
 
-export default async function Blogs() {
-  const posts = await getPosts(6)
+export default async function Blogs({ length }: { length: number }) {
+  const posts = await getPosts(length)
 
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 w-full place-items-center gap-4">
@@ -50,6 +52,7 @@ export default async function Blogs() {
           </Card>
         </Link>
       ))}
+      <LoadMoreButton length={6} />
     </div>
   )
 }
