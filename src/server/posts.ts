@@ -16,10 +16,10 @@ export type Post = {
   category: string
 }
 
-export async function getPosts() {
+export async function getPosts(length = 3) {
   try {
     const posts = await client.fetch<Post[]>(
-      '*[_type == "post"]|order(publishedAt desc)'
+      `*[_type == "post"]|order(publishedAt desc)[0...${length}]`
     )
 
     return posts

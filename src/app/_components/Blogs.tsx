@@ -1,26 +1,24 @@
+import ImagePlaceholder from '@/components/image-placeholder'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { generateImageUrl } from '@/lib/sanity'
 import { getPosts } from '@/server/posts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { LoadMoreButton } from './LoadMoreButton'
 
-const PlaceHolder = () => (
-  <Image
-    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=3440&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    alt="image"
-    fill
-    objectFit="cover"
-  />
-)
-
-export default async function Blogs() {
-  const posts = await getPosts()
+export default async function Blogs({ length }: { length: number }) {
+  const posts = await getPosts(length)
 
   return (
-    <div className="grid grid-cols-2 w-full items-center gap-4 pb-12">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 w-full place-items-center gap-4">
       {posts.map((post) => (
-        <Link key={post._id} href={`/blogs/${post.slug.current}`}>
+        <Link
+          key={post._id}
+          href={`/blogs/${post.slug.current}`}
+          className="w-5/6 sm:w-full"
+        >
           <Card className="col-span-1 h-[324px] w-full flex flex-col">
             <CardHeader className="p-0">
               <div className="relative h-48">
@@ -33,7 +31,7 @@ export default async function Blogs() {
                     className="bg-slate-100"
                   />
                 ) : (
-                  <PlaceHolder />
+                  <ImagePlaceholder />
                 )}
               </div>
 
@@ -54,6 +52,7 @@ export default async function Blogs() {
           </Card>
         </Link>
       ))}
+      <LoadMoreButton length={6} />
     </div>
   )
 }

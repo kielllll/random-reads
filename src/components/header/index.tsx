@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import { Switch } from '../ui/switch'
-import { Label } from '../ui/label'
 import Image from 'next/image'
 
 export default function Header() {
@@ -14,10 +12,6 @@ export default function Header() {
           alt={'Random Reads'}
         />
       </Link>
-      <div className="flex items-center space-x-2">
-        <Switch id="dark-mode" />
-        <Label htmlFor="dark-mode">Dark Mode</Label>
-      </div>
     </header>
   )
 }
