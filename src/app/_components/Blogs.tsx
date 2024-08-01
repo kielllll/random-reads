@@ -6,7 +6,7 @@ import { generateImageUrl } from '@/lib/sanity'
 import { getPosts } from '@/server/posts'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LoadMoreButton } from './LoadMoreButton'
+import { LoadMoreButton } from './load_more_button'
 
 export default async function Blogs({ length }: { length: number }) {
   const posts = await getPosts(length)
