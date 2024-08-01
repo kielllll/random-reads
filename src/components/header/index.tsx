@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import ThemeButton from './theme-button'
 
 export default function Header() {
   return (
@@ -12,6 +13,7 @@ export default function Header() {
           alt={'Random Reads'}
         />
       </Link>
+      <ThemeButton />
     </header>
   )
 }
