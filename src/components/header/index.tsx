@@ -8,7 +8,7 @@ import ThemeButton from './theme-button'
 export default function Header() {
   const [theme, setTheme] = useState('dark')
   const isDark = theme === 'dark'
-  console.log(isDark)
+
   return (
     <header className="flex w-full max-w-4xl items-center justify-between py-4 relative">
       <Link href="/">

@@ -12,7 +12,6 @@ export function LoadMoreButton({ length }: { length: number }) {
   return (
     <Button
       onClick={() => {
-        console.log('clicked')
         params.set('length', (length + 6).toString())
         replace(`${pathname}?${params.toString()}`)
       }}
