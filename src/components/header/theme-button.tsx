@@ -17,6 +17,7 @@ export default function ThemeButton({
     const savedTheme = localStorage.getItem('theme')
 
     setTheme(savedTheme || 'dark')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function ThemeButton({
       document.documentElement.classList.add('dark')
       localStorage.setItem('theme', 'dark')
     }
-  }, [theme])
+  }, [isDark])
 
   const handleToggleTheme = () => {
     setTheme(isDark ? 'light' : 'dark')
