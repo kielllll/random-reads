@@ -11,14 +11,14 @@ export default async function Blogs({ length }: { length: number }) {
   const posts = await getPosts(length)
 
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 w-full place-items-center gap-4">
+    <div className="grid grid-cols-2 w-full place-items-center gap-4">
       {posts.map((post) => (
         <Link
           key={post._id}
           href={`/blogs/${post.slug.current}`}
-          className="w-5/6 sm:w-full"
+          className="w-5/6 sm:w-full col-span-2 sm:col-span-1"
         >
-          <Card className="col-span-1 h-[324px] w-full flex flex-col">
+          <Card className="h-[324px] w-full flex flex-col">
             <CardHeader className="p-0">
               <div className="relative h-48">
                 {post.preview?.asset ? (
