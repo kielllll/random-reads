@@ -1,5 +1,5 @@
-import Banner from './_components/Banner'
-import Blogs from './_components/Blogs'
+import Banner from './_components/banner'
+import Blogs from './_components/blogs'
 
 export default function Home({
   searchParams,

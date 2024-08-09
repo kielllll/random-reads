@@ -1,12 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { CiDark, CiLight } from 'react-icons/ci'
 import { Button } from '../ui/button'
 
-export default function ThemeButton() {
-  const [theme, setTheme] = useState('dark')
-
+export default function ThemeButton({
+  theme,
+  setTheme,
+}: {
+  theme: string
+  setTheme: React.Dispatch<React.SetStateAction<string>>
+}) {
   const isDark = theme === 'dark'
 
   useEffect(() => {

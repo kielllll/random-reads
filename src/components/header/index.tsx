@@ -1,19 +1,25 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import ThemeButton from './theme-button'
 
 export default function Header() {
+  const [theme, setTheme] = useState('dark')
+  const isDark = theme === 'dark'
+  console.log(isDark)
   return (
     <header className="flex w-full max-w-4xl items-center justify-between py-4 relative">
       <Link href="/">
         <Image
-          src={'/random-reads.svg'}
+          src={isDark ? '/random-reads-dark-theme.svg' : '/random-reads.svg'}
           width={50}
           height={50}
           alt={'Random Reads'}
         />
       </Link>
-      <ThemeButton />
+      <ThemeButton theme={theme} setTheme={setTheme} />
     </header>
   )
 }
